@@ -1,0 +1,35 @@
+def findTriplet(A):
+    n=len(A)
+    if n<3:
+        return ()
+        
+    min=[-1]*n
+    min_index=0
+    for i in range(1,n):
+        if A[i]<A[min_index]:
+            min_index=i
+        elif A[i]>A[min_index]:
+            min[i]=min_index
+            
+            
+    max=[-1]*n
+    max_index=n-1
+    for i in reversed(range(n-1)):
+        if A[i]>A[max_index]:
+            max_index=i
+        elif A[i]<A[max_index]:
+            max[i]=max_index
+    for i in range(n):
+        if min[i]!=-1 and  max[i]!=-1:
+                return min[i],i,max[i]
+    
+        
+    return ()        
+    
+if __name__=='__main__':
+    input=[5,4,7,3,6,1,9]
+    first,second,third=findTriplet(input)
+    if first:
+        print(input[first],input[second],input[third])
+    else:
+        print("not found")
