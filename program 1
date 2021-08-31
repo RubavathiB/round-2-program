@@ -1,0 +1,25 @@
+def sortarray(A):
+    if len(A)<1:
+        return
+    x=0
+    y=0
+    prev=a[0]
+    for i in range(1,len(A)):
+        if prev>A[i]:
+            x=i+1
+            y=i
+        else:
+            y=i
+        prev=A[i]
+    swap(x,y)
+    
+    def swap(x,y):
+        x=x+y
+        y=x-y
+        x=x-y
+    
+
+if __name__=='__main__':
+    a=[3,8,6,7,5,9]    
+    sortarray(a)
+    print(a)
